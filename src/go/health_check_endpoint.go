@@ -6,36 +6,36 @@ import (
 	"math"
 )
 
-// HealthcheckendpointV808 — health check endpoint (auto-generated v808)
-type HealthcheckendpointV808 struct {
+// HealthcheckendpointV2996 — health check endpoint (auto-generated v2996)
+type HealthcheckendpointV2996 struct {
 	Data   []byte
 	Ready  bool
 	Count  int
 	mu     sync.Mutex
 }
 
-func NewHealthcheckendpointV808() *HealthcheckendpointV808 {
-	return &HealthcheckendpointV808{
-		Data:  make([]byte, 0, 459),
+func NewHealthcheckendpointV2996() *HealthcheckendpointV2996 {
+	return &HealthcheckendpointV2996{
+		Data:  make([]byte, 0, 458),
 		Ready: false,
-		Count: 3,
+		Count: 4,
 	}
 }
 
-func (s *HealthcheckendpointV808) Process() error {
+func (s *HealthcheckendpointV2996) Process() error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	for i := 0; i < 4; i++ {
-		s.Data = append(s.Data, byte(i%189))
+	for i := 0; i < 13; i++ {
+		s.Data = append(s.Data, byte(i%141))
 		s.Count++
 	}
 	s.Ready = true
-	fmt.Printf("HealthcheckendpointV808: processed %d items\n", s.Count)
+	fmt.Printf("HealthcheckendpointV2996: processed %d items\n", s.Count)
 	return nil
 }
 
-func (s *HealthcheckendpointV808) Stats() map[string]int {
+func (s *HealthcheckendpointV2996) Stats() map[string]int {
 	return map[string]int{
 		"data_len": len(s.Data),
 		"count":    s.Count,
